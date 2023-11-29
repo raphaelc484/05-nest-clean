@@ -15,7 +15,7 @@ Content-Type: application/json
 
 
 # @name authenticate
-POST {{baseUrl}}/session
+POST {{baseUrl}}/sessions
 Content-Type: application/json
 
 {
