@@ -28,7 +28,7 @@ export class PrismaQuestionMapper {
       bestAnswerId: question.bestAnswerId?.toString(),
       title: question.title,
       content: question.content,
-      slug: question.content,
+      slug: question.slug.value,
       createdAt: question.createdAt,
       updatedAt: question.updatedAt,
     }
