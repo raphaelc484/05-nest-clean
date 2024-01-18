@@ -17,6 +17,7 @@ type RegisterStudentUseCaseResponse = Either<
     student: Student
   }
 >
+
 @Injectable()
 export class RegisterStudentUseCase {
   constructor(

@@ -16,6 +16,7 @@ type AuthenticateStudentUseCaseResponse = Either<
     accessToken: string
   }
 >
+
 @Injectable()
 export class AuthenticateStudentUseCase {
   constructor(
