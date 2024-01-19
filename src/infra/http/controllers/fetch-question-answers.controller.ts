@@ -30,21 +30,17 @@ export class FetchQuestionAnswersController {
     @Query('page', queryValidationPipe) page: PageQueryParamSchema,
     @Param('questionId') questionId: string,
   ) {
-    try {
-      const result = await this.fetchQuestionAnswers.execute({
-        page,
-        questionId,
-      })
+    const result = await this.fetchQuestionAnswers.execute({
+      page,
+      questionId,
+    })
 
-      if (result.isLeft()) {
-        throw new BadRequestException()
-      }
-
-      const answers = result.value.answers
-
-      return { answers: answers.map(AnswerPresenter.toHTTP) }
-    } catch (error) {
-      console.log(error)
+    if (result.isLeft()) {
+      throw new BadRequestException()
     }
+
+    const answers = result.value.answers
+
+    return { answers: answers.map(AnswerPresenter.toHTTP) }
   }
 }

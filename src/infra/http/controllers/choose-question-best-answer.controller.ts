@@ -21,19 +21,15 @@ export class ChooseQuestionBestAnswerController {
     @CurrentUser() user: UserPayload,
     @Param('answerId') answerId: string,
   ) {
-    try {
-      const userId = user.sub
+    const userId = user.sub
 
-      const result = await this.chooseQuestionBestAnswer.execute({
-        authorId: userId,
-        answerId,
-      })
+    const result = await this.chooseQuestionBestAnswer.execute({
+      authorId: userId,
+      answerId,
+    })
 
-      if (result.isLeft()) {
-        throw new BadRequestException()
-      }
-    } catch (error) {
-      console.log(error)
+    if (result.isLeft()) {
+      throw new BadRequestException()
     }
   }
 }
