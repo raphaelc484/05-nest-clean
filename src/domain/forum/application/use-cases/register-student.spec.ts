@@ -1,4 +1,4 @@
-import { InMemoryStudentsRepository } from 'test/repositories/in-memomry-students-repository'
+import { InMemoryStudentsRepository } from 'test/repositories/in-memory-students-repository'
 import { RegisterStudentUseCase } from './register-student'
 import { FakeHasher } from 'test/cryptography/fake-hasher'
 
