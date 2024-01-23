@@ -1,4 +1,3 @@
-import { truncate } from 'fs'
 import { UniqueEntityId } from './unique-entity-id'
 
 export abstract class Entity<Props> {
@@ -16,7 +15,7 @@ export abstract class Entity<Props> {
 
   public equals(entity: Entity<unknown>) {
     if (entity === this) {
-      return truncate
+      return true
     }
 
     if (entity.id === this._id) {
