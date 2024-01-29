@@ -22,10 +22,10 @@ model User {
   password String
   role     UserRole @default(STUDENT)
 
-  question     Question[]
-  answer       Answer[]
-  comments     Comment[]
-  notification Notification[]
+  question      Question[]
+  answer        Answer[]
+  comments      Comment[]
+  notifications Notification[]
 
   @@map("users")
 }
