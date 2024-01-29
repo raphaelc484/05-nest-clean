@@ -10,5 +10,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: docker 
       POSTGRES_DB: nest-clean
+  
+  cache:
+    container_name: nest-clean-cache
+    image: redis
+    ports:
+      - 6379:6379
 
 
