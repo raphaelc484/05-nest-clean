@@ -10,11 +10,52 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: docker 
       POSTGRES_DB: nest-clean
+    networks:
+      - nest-network
   
   cache:
     container_name: nest-clean-cache
     image: redis
     ports:
       - 6379:6379
+    networks:
+      - nest-network
+
+  prisma:
+    image: prismagraphql/prisma:1.34.9-gatsby
+    container_name: nest-clean-prisma
+    ports:
+      - 4466:4466
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        databases:
+          default:
+            connector: postgres
+            host: nest-clean-pg
+            port: 5432
+            user: postgres
+            password: docker
+            migrations: true
+    depends_on:
+      - postgres
+    networks:
+      - nest-network
+
+  nest-clean:
+    build:
+      context: .
+    container_name: nest-clean
+    ports:
+      - 3001:3333
+    depends_on:
+      - postgres
+      - cache
+    networks:
+      - nest-network
+
+networks:
+    nest-network:
+      driver: bridge
 
 
