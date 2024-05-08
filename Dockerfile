@@ -25,5 +25,5 @@ COPY --from=build /usr/src/app/node_modules ./node_modules
 
 EXPOSE 3333
 
-CMD ["npm", "run", "start:prod"]
+CMD npx prisma migrate deploy && npm run start:prod
 
