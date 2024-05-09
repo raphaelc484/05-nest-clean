@@ -24,37 +24,18 @@ Para o projeto em questão utilizamos de alguns requesitos externos, uma conta n
 
 É necessário a existência de ambos os arquivos .env e .env.test para para que os testes funcionem da maneira correta.
 
-Com o docker e docker-compose instalados já em máquina use o comando abaixo para ter os bancos instalados em máquina:
-
-```
-docker-compose up -d
-```
-
-Use o comando abaixo para instalação das libs necessárias:
-
-```
-npm i
-```
-
-Com os bancos instalados utiliza o seguinte comando do prisma para criação de tabelas:
-
-
-```
-npx prisma migrate dev
-```
-
-Seguido deste para o Prisma Client:
-
-```
-npx prisma generate   
-```
-
 O .env.example já está seguindo com a url do prisma já configurada do arquivo docker-compose.yml. Caso modifique este para a geração do banco, modifique seu arquivo .env também.
+
+Com o docker e docker-compose instalados já em máquina use o comando abaixo para criar os containers necessários da aplicação :
+
+```
+docker-compose build
+```
 
 Dentro do package.json estão listados os comandos principais da aplicação tanto para testes unitários e e2e, mas caso deseje iniciar a aplicação após o preenchimentos dos quesitos citados anteriomente, utilize o comando:
 
 ```
-npm run start:dev
+docker-compose up -d
 ```
 
 Ferramentas utilizadas
@@ -66,6 +47,7 @@ Ferramentas utilizadas
 * [Prisma](https://www.prisma.io/)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Redis](https://redis.io/)
+* [Docker](https://www.docker.com/)
 
 ## ✒️ Autores
 
